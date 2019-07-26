@@ -13,8 +13,8 @@ let package = Package(
             targets: ["ActionsKit"]),
     ],
     dependencies: [
-         .package(url: "https://github.com/elegantchaos/Actions", from: "1.3.5"),
-         .package(url: "https://github.com/elegantchaos/Localization", from: "1.0.0"),
+         .package(url: "https://github.com/elegantchaos/Actions", from: "1.4.0"),
+         .package(url: "https://github.com/elegantchaos/Localization", from: "1.0.1"),
     ],
     targets: [
         .target(

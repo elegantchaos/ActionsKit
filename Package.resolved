@@ -38,6 +38,15 @@
         }
       },
       {
+        "package": "Localization",
+        "repositoryURL": "https://github.com/elegantchaos/Localization",
+        "state": {
+          "branch": null,
+          "revision": "e298083603f8f6a4513a15146d4d0e2d032a4b3f",
+          "version": "1.0.0"
+        }
+      },
+      {
         "package": "Logger",
         "repositoryURL": "https://github.com/elegantchaos/Logger.git",
         "state": {
