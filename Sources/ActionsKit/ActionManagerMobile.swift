@@ -176,7 +176,7 @@ public class ActionManagerMobile: ActionManager {
 }
 
 extension Action.Validation {
-    var icon: UIImage? {
+    public var icon: UIImage? {
         let imageName = iconName.localized(with: localizationInfo)
         if #available(iOS 13.0, *), let image = UIImage(systemName: imageName) {
             return image
