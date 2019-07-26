@@ -97,21 +97,27 @@ public class ActionManagerMobile: ActionManager {
         
         // if there's a first responder set (eg text is being edited)
         // include its responder chain
-        if let chain = UIResponder.currentFirstResponder {
+        let first = UIResponder.currentFirstResponder
+        if let chain = first {
+            providerChannel.log("Adding firstResponder \(chain)")
             result.append(chain)
         }
 
         // if there's a navigation controller showing something,
         // include its chain
         if let keyWindow = UIApplication.shared.keyWindow, let root = keyWindow.rootViewController {
-            let chain: ActionResponder
+            let chain: UIResponder
             if let top = topController(for: root) {
+                providerChannel.log("Adding topController \(top) for \(root)")
                 chain = top
             } else {
+                providerChannel.log("Adding root \(root)")
                 chain = root
             }
             
-            result.append(chain) // TODO: check for duplicates?
+            if chain != first {
+                result.append(chain)
+            }
         }
         
         return result
