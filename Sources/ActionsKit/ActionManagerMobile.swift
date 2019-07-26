@@ -8,6 +8,7 @@
 import UIKit
 import Logger
 import Actions
+import Localization
 
 let viewControllerChannel = Channel("com.elegantchaos.actions.ViewController")
 
@@ -139,8 +140,53 @@ public class ActionManagerMobile: ActionManager {
     public func installResponder() {
         responder.manager = self
     }
+    
+    
+    /// Perform validation on some user interface items.
+    /// We resolve the actionID for each item, get the validation information for that item, then
+    /// use it to set the name, image, enabled state and so on for each item
+    /// Currently supported item types are UIButton and UIBarItem.
+    ///
+    /// - Parameter items: the items to validate
+    public func validate(items: [ActionIdentification]) {
+        for item in items {
+            let identifier = item.actionID
+            if !identifier.isEmpty {
+                let validation = validate(identifier: item.actionID, info: ActionInfo(sender: item))
+                if let button = item as? UIButton {
+                    button.isEnabled = validation.enabled
+                    button.isHidden = !validation.visible
+                    let name = validation.fullName.localized(with: validation.localizationInfo)
+                    button.setTitle(name, for: .normal)
+                    if let image = validation.icon {
+                        button.setImage(image, for: .normal)
+                    }
+                } else if let item = item as? UIBarItem {
+                    item.isEnabled = validation.enabled
+                    let name = validation.shortName.localized(with: validation.localizationInfo)
+                    item.title = name
+                    if let image = validation.icon {
+                        item.image = image
+                    }
+                }
+            }
+        }
+    }
+
 }
 
+extension Action.Validation {
+    var icon: UIImage? {
+        let imageName = iconName.localized(with: localizationInfo)
+        if #available(iOS 13.0, *), let image = UIImage(systemName: imageName) {
+            return image
+        } else if let image = UIImage(named: imageName) {
+            return image
+        } else {
+            return nil
+        }
+    }
+}
 
 /**
  We want UIResponder to conform to ActionResponder, so
