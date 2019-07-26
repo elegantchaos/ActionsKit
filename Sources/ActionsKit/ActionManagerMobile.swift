@@ -10,6 +10,7 @@ import Logger
 import Actions
 import Localization
 
+let validationChannel = Logger("Validation")
 let viewControllerChannel = Channel("com.elegantchaos.actions.ViewController")
 
 public class ActionManagerMobile: ActionManager {
@@ -188,45 +189,18 @@ extension Action.Validation {
     }
 }
 
-/**
- We want UIResponder to conform to ActionResponder, so
- that our generic code knows how to walk the iOS
- responder chain.
- */
 
-extension UIResponder: ActionResponder {
-    public func next() -> ActionResponder? {
-        return next
+public protocol HasValidatableActions {
+    func validateButtons(with actionManager: ActionManagerMobile)
+    func scheduleForValidation(with actionManager: ActionManagerMobile)
+}
+
+extension HasValidatableActions {
+    public func scheduleForValidation(with actionManager: ActionManagerMobile) {
+        OperationQueue.main.addOperation {
+            self.validateButtons(with: actionManager)
+        }
     }
 }
 
-extension UIView: ActionIdentification {
-    @objc public var actionID: String {
-        get { return retrieveID() }
-        set(value) { storeID(value) }
-    }
-}
-
-extension UIBarItem: ActionIdentification {
-    @objc public var actionID: String {
-        get { return retrieveID() }
-        set(value) { storeID(value) }
-    }
-}
-
-extension UIResponder {
-    
-    private static weak var _currentFirstResponder: UIResponder?
-    
-    static var currentFirstResponder: UIResponder? {
-        _currentFirstResponder = nil
-        UIApplication.shared.sendAction(#selector(UIResponder.findFirstResponder(_:)), to: nil, from: nil, for: nil)
-        
-        return _currentFirstResponder
-    }
-    
-    @objc func findFirstResponder(_ sender: Any) {
-        UIResponder._currentFirstResponder = self
-    }
-}
 #endif
