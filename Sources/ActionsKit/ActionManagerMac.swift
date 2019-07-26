@@ -36,9 +36,7 @@ public class ActionManagerMac: ActionManager {
                 
                 if let menu = item as? NSMenuItem {
                     menu.isHidden = !validation.visible
-                    if let name = validation.name {
-                        menu.title = name
-                    }
+                    menu.title = validation.fullName.localized
                 }
                 
                 return validation.enabled
