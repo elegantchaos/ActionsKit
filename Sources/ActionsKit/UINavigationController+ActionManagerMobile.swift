@@ -4,23 +4,26 @@
 import Actions
 import UIKit
 
+public class ValidatableBarButton: ActionResponder, ActionIdentification {
+    public let button: UIBarButtonItem
+    public let view: UIView
+
+    public func next() -> ActionResponder? {
+        return view
+    }
+
+    public var actionID: String {
+        get { return button.actionID }
+        set { button.actionID = newValue }
+    }
+
+    init(button: UIBarButtonItem, view: UIView) {
+        self.button = button
+        self.view = view
+    }
+}
 
 extension UINavigationController {
-    class ValidatableBarButton: ActionResponder, ActionIdentification {
-        var actionID: String {
-            get { return button.actionID }
-            set { button.actionID = newValue }
-        }
-        let button: UIBarButtonItem
-        let view: UIView
-        init(button: UIBarButtonItem, view: UIView) {
-            self.button = button
-            self.view = view
-        }
-        func next() -> ActionResponder? {
-            return view
-        }
-    }
     
     public func appendValidatableItems(to items: inout [ActionIdentification], for view: UIView) {
         if let leftButtons = navigationBar.topItem?.leftBarButtonItems {

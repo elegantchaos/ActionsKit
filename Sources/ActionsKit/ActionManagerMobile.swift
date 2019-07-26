@@ -168,12 +168,12 @@ public class ActionManagerMobile: ActionManager {
                     if let image = validation.icon {
                         button.setImage(image, for: .normal)
                     }
-                } else if let item = item as? UIBarItem {
-                    item.isEnabled = validation.enabled
+                } else if let item = item as? ValidatableBarButton {
+                    item.button.isEnabled = validation.enabled
                     let name = validation.shortName.localized(with: validation.localizationInfo)
-                    item.title = name
+                    item.button.title = name
                     if let image = validation.icon {
-                        item.image = image
+                        item.button.image = image
                     }
                 }
             }
