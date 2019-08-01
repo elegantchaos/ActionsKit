@@ -4,7 +4,7 @@
 //  All code (c) 2018 - present day, Elegant Chaos Limited.
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
-#if os(macOS)
+#if os(macOS) && !targetEnvironment(macCatalyst)
 import AppKit
 import Actions
 import Logger
