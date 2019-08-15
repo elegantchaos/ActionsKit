@@ -164,8 +164,10 @@ public class ActionManagerMobile: ActionManager {
                 if let button = item as? UIButton {
                     button.isEnabled = validation.enabled
                     button.isHidden = !validation.visible
-                    let name = validation.fullName.localized(with: validation.localizationInfo)
-                    button.setTitle(name, for: .normal)
+                    if let title = button.title(for: .normal), !title.isEmpty {
+                        let name = validation.fullName.localized(with: validation.localizationInfo)
+                        button.setTitle(name, for: .normal)
+                    }
                     if let image = validation.icon {
                         button.setImage(image, for: .normal)
                     }
