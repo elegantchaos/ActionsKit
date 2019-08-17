@@ -11,10 +11,9 @@ import UIKit
 extension UIView: ActionIdentification {
     @objc public var actionID: String {
         get { return retrieveID() }
-        set(value) { storeID(value) }
+        set { storeID(newValue) }
     }
 }
-
 
 extension UIView: HasValidatableActions {
     public func appendValidatableItems(to items: inout [ActionIdentification]) {
