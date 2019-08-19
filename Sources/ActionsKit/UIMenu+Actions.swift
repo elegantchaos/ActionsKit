@@ -8,7 +8,7 @@
 import Actions
 import UIKit
 
-extension UIMenu: ActionIdentification {
+@available(iOS 13.0, *) extension UIMenu: ActionIdentification {
     public var actionID: String {
         get { return identifier.rawValue }
         set { fatalError("can't set actionID for UIMenu") }

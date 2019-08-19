@@ -6,7 +6,7 @@
 import Actions
 import UIKit
 
-extension UICommand: ActionIdentification {
+@available(iOS 13.0, *) extension UICommand: ActionIdentification {
     public var actionID: String {
         get { return (propertyList as? String) ?? "" }
         set { fatalError("can't set actionID for UICommand") }
