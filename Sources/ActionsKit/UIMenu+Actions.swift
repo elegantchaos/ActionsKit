@@ -14,3 +14,11 @@ import UIKit
         set { fatalError("can't set actionID for UIMenu") }
     }
 }
+
+extension UIMenuItem: ActionIdentification {
+    public var actionID: String {
+        get { return retrieveID() }
+        set { storeID(newValue) }
+    }
+}
+
