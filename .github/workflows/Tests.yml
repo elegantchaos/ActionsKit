@@ -51,16 +51,6 @@ jobs:
             set -o pipefail
             source "names-macOS.sh"
             xcodebuild clean build -workspace "$WORKSPACE" -scheme "$SCHEME" -configuration Release CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO | tee logs/xcodebuild-macOS-build-release.log | xcpretty
-        - name: Test (macOS/Debug)
-          run: |
-            set -o pipefail
-            source "names-macOS.sh"
-            xcodebuild test -workspace "$WORKSPACE" -scheme "$SCHEME"  -configuration Debug CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO  | tee logs/xcodebuild-macOS-test-debug.log | xcpretty
-        - name: Test (macOS/Release)
-          run: |
-            set -o pipefail
-            source "names-macOS.sh"
-            xcodebuild test -workspace "$WORKSPACE" -scheme "$SCHEME"  -configuration Release CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ENABLE_TESTABILITY=YES | tee logs/xcodebuild-macOS-test-release.log | xcpretty
         - name: Build (iOS/Debug)
           run: |
             set -o pipefail
@@ -71,16 +61,6 @@ jobs:
             set -o pipefail
             source "names-iOS.sh"
             xcodebuild clean build -workspace "$WORKSPACE" -scheme "$SCHEME" -configuration Release CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO | tee logs/xcodebuild-iOS-build-release.log | xcpretty
-        - name: Test (iOS/Debug)
-          run: |
-            set -o pipefail
-            source "names-iOS.sh"
-            xcodebuild test -workspace "$WORKSPACE" -scheme "$SCHEME" -destination "name=iPhone 11" -configuration Debug CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO  | tee logs/xcodebuild-iOS-test-debug.log | xcpretty
-        - name: Test (iOS/Release)
-          run: |
-            set -o pipefail
-            source "names-iOS.sh"
-            xcodebuild test -workspace "$WORKSPACE" -scheme "$SCHEME" -destination "name=iPhone 11" -configuration Release CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ENABLE_TESTABILITY=YES | tee logs/xcodebuild-iOS-test-release.log | xcpretty
         - name: Upload Logs
           uses: actions/upload-artifact@v1
           with:
