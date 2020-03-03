@@ -8,6 +8,7 @@
 import AppKit
 import Actions
 import Logger
+import Localization
 
 let validationChannel = Logger("com.elegantchaos.actions.Validation")
 
@@ -131,9 +132,7 @@ public class ActionManagerMac: ActionManager {
                 let validation = validate(identifier: identifier, info: ActionInfo(sender: button))
                 button.isEnabled = validation.enabled
                 button.isHidden = !validation.visible
-                if let name = (validation.shortName ?? validation.name) {
-                    button.title = name
-                }
+                button.title = validation.shortName.localized(with: validation.localizationInfo)
             }
         }
     }
@@ -234,7 +233,7 @@ extension NSMenuItem: ActionIdentification {
 
 extension NSMenuItem: ActionContextProvider {
     public func provide(context: ActionContext) {
-        context[ActionContext.objectKey] = representedObject
+        context[.object] = representedObject
     }
 }
 #endif

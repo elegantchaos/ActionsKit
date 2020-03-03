@@ -3,13 +3,6 @@ import XCTest
 
 final class ActionsKitTests: XCTestCase {
     func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct
-        // results.
-        XCTAssertEqual(ActionsKit().text, "Hello, World!")
+        XCTFail("Tests? What tests?")
     }
-
-    static var allTests = [
-        ("testExample", testExample),
-    ]
 }

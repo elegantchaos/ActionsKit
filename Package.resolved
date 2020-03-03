@@ -6,8 +6,8 @@
         "repositoryURL": "https://github.com/elegantchaos/Actions",
         "state": {
           "branch": null,
-          "revision": "3ee3f4037fbf364a786499c44302825a05abfd59",
-          "version": "1.3.5"
+          "revision": "1ee12a4629fd385bde3af0fc30d57874f79efec3",
+          "version": "1.5.0"
         }
       },
       {
@@ -42,8 +42,8 @@
         "repositoryURL": "https://github.com/elegantchaos/Localization",
         "state": {
           "branch": null,
-          "revision": "e298083603f8f6a4513a15146d4d0e2d032a4b3f",
-          "version": "1.0.0"
+          "revision": "74d7471c99389e432970eb9d7cc307d8b20d95c0",
+          "version": "1.0.1"
         }
       },
       {
