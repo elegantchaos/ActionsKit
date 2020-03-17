@@ -7,6 +7,7 @@
 
 import UIKit
 import Logger
+import LoggerKit
 import Actions
 import Localization
 
@@ -14,7 +15,7 @@ let validationChannel = Logger("Validation")
 let viewControllerChannel = Channel("com.elegantchaos.actions.ViewController")
 
 public class ActionManagerMobile: ActionManager {
-    public class Responder: UIResponder {
+    public class Responder: ChainableResponder {
         weak var manager: ActionManager! = nil
         
         /**
