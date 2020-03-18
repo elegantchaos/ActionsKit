@@ -6,35 +6,8 @@
         "repositoryURL": "https://github.com/elegantchaos/Actions",
         "state": {
           "branch": null,
-          "revision": "1ee12a4629fd385bde3af0fc30d57874f79efec3",
-          "version": "1.5.0"
-        }
-      },
-      {
-        "package": "Arguments",
-        "repositoryURL": "https://github.com/elegantchaos/Arguments.git",
-        "state": {
-          "branch": null,
-          "revision": "e17c144eb00b6d9e500c34eb09de265add523de2",
-          "version": "1.1.0"
-        }
-      },
-      {
-        "package": "Coverage",
-        "repositoryURL": "https://github.com/elegantchaos/Coverage.git",
-        "state": {
-          "branch": null,
-          "revision": "fa0d05817cb910923ace380a9a17fb2862d92ec9",
-          "version": "1.0.6"
-        }
-      },
-      {
-        "package": "Docopt",
-        "repositoryURL": "https://github.com/elegantchaos/docopt.swift.git",
-        "state": {
-          "branch": null,
-          "revision": "fa71fca4b4e7411c70a21ef89256cd04a64c6dda",
-          "version": "0.6.11"
+          "revision": "19111bc61490fd50c9dfd746ec5e79188ca1a2d3",
+          "version": "1.5.1"
         }
       },
       {
@@ -42,8 +15,8 @@
         "repositoryURL": "https://github.com/elegantchaos/Localization",
         "state": {
           "branch": null,
-          "revision": "74d7471c99389e432970eb9d7cc307d8b20d95c0",
-          "version": "1.0.1"
+          "revision": "c7e9058785748455314cd3b5bedc300d17bc287f",
+          "version": "1.0.3"
         }
       },
       {
@@ -51,17 +24,8 @@
         "repositoryURL": "https://github.com/elegantchaos/Logger.git",
         "state": {
           "branch": null,
-          "revision": "c101ca48876adabeb25848f5fe0efba748c24d73",
-          "version": "1.3.7"
-        }
-      },
-      {
-        "package": "Runner",
-        "repositoryURL": "https://github.com/elegantchaos/Runner.git",
-        "state": {
-          "branch": null,
-          "revision": "54889ffb68a12f3bb166ddc501cae5a83fd89bf4",
-          "version": "1.0.4"
+          "revision": "e4073d0427146d2884730d0cdcb62e4ce0f80938",
+          "version": "1.5.3"
         }
       }
     ]
