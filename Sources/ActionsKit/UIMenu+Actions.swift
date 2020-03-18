@@ -1,10 +1,9 @@
-//
-//  File.swift
-//  
-//
-//  Created by Developer on 17/08/2019.
-//
+// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+//  Created by Sam Deane on 18/03/20.
+//  All code (c) 2020 - present day, Elegant Chaos Limited.
+// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
+#if canImport(UIKit)
 import Actions
 import UIKit
 
@@ -21,4 +20,4 @@ extension UIMenuItem: ActionIdentification {
         set { storeID(newValue) }
     }
 }
-
+#endif

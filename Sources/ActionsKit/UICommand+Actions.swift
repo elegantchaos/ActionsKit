@@ -3,6 +3,7 @@
 //  All code (c) 2019 - present day, Elegant Chaos Limited.
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
+#if canImport(UIKit)
 import Actions
 import UIKit
 
@@ -12,3 +13,4 @@ import UIKit
         set { fatalError("can't set actionID for UICommand") }
     }
 }
+#endif
