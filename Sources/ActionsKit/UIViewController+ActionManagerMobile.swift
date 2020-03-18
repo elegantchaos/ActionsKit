@@ -14,5 +14,13 @@ extension UIViewController: HasValidatableActions {
     }
 }
 
+/**
+ Classes conforming to this protocol supply a decoding init method which takes an action context.
+ */
+
+public protocol DecodableWithContextViewController: UIViewController, DecodableWithContext {
+    
+}
+
 
 #endif
