@@ -5,7 +5,7 @@ import PackageDescription
 let package = Package(
     name: "ActionsKit",
     platforms: [
-        .macOS(.v10_13), .iOS(.v12),
+        .macOS(.v10_13), .iOS(.v12), .tvOS(.v12)
     ],
     products: [
         .library(
@@ -14,12 +14,13 @@ let package = Package(
     ],
     dependencies: [
          .package(url: "https://github.com/elegantchaos/Actions", from: "1.5.1"),
+         .package(url: "https://github.com/elegantchaos/Logger", from: "1.5.3"),
          .package(url: "https://github.com/elegantchaos/Localization", from: "1.0.3"),
     ],
     targets: [
         .target(
             name: "ActionsKit",
-            dependencies: ["Actions", "Localization"]),
+            dependencies: ["Actions", "Localization", "LoggerKit"]),
         .testTarget(
             name: "ActionsKitTests",
             dependencies: ["ActionsKit"]),
