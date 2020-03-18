@@ -18,6 +18,15 @@
           "revision": "c7e9058785748455314cd3b5bedc300d17bc287f",
           "version": "1.0.3"
         }
+      },
+      {
+        "package": "Logger",
+        "repositoryURL": "https://github.com/elegantchaos/Logger",
+        "state": {
+          "branch": null,
+          "revision": "cd67757f696ce6c8353d874d867a49b8e2306e2f",
+          "version": "1.5.3"
+        }
       }
     ]
   },

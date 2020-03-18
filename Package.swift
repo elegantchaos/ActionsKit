@@ -1,4 +1,4 @@
-// swift-tools-version:5.0
+// swift-tools-version:5.1
 
 import PackageDescription
 
@@ -20,7 +20,7 @@ let package = Package(
     targets: [
         .target(
             name: "ActionsKit",
-            dependencies: ["Actions", "Localization", "LoggerKit"]),
+            dependencies: ["Actions", "Localization", "Logger", "LoggerKit"]),
         .testTarget(
             name: "ActionsKitTests",
             dependencies: ["ActionsKit"]),
